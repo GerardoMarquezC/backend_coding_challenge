@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const { dbConnection } = require('../database/config');
-
+const  logger = require('../helpers/winston');
 class Server {
 
     constructor() {
@@ -44,7 +44,7 @@ class Server {
 
     listen() {
         this.app.listen(this.port, () => {
-            console.log('Servidor corriendo en el puerto', this.port);
+            logger.info(`Servidor corriendo en el puerto ${this.port}`);
         });
     }
 }

@@ -1,5 +1,6 @@
 const { request, response } = require("express");
 const jwt = require("jsonwebtoken");
+const logger = require("../helpers/winston");
 const User = require("../models/user");
 
 const validateJWT = async (req = request, res = response, next) => {
@@ -12,6 +13,7 @@ const validateJWT = async (req = request, res = response, next) => {
     const { uid } = jwt.verify(token, process.env.SECRETORPRIVATEKEY);
     const user = await User.findById(uid);
     if (!user) {
+      logger.error("User is not registered in the database");
       return res.status(401).json({
         msg: "User is not registered in the database",
       });
@@ -19,7 +21,7 @@ const validateJWT = async (req = request, res = response, next) => {
     req.user = user;
     next();
   } catch (error) {
-    console.log(error);
+    logger.error(error);
     res.status(401).json({ msg: "invalid token" });
   }
 };
