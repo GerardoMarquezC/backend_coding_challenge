@@ -22,7 +22,6 @@ const validateTotalPricefromProducts = async (products,{req}) => {
     if(req.body.total_price != total){
         throw new Error(`the sum of the price of the products multiplied by the quantity must equal the total price`);
     }
-    console.log(total);
 };
 
 module.exports = { validateArrayProduct,validateTotalPricefromProducts };

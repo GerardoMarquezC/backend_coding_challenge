@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        table.customTable {
+            width: 100%;
+            background-color: #FFFFFF;
+            border-collapse: collapse;
+            border-width: 2px;
+            border-color: #7ea8f8;
+            border-style: solid;
+            color: #000000;
+        }
+
+        table.customTable td,
+        table.customTable th {
+            border-width: 2px;
+            border-color: #7ea8f8;
+            border-style: solid;
+            padding: 5px;
+        }
+
+        table.customTable thead {
+            background-color: #7ea8f8;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="width: 85%; margin: 0 5.5%;">
+        <div style="text-align: center; padding-left: 50px;">
+            <h3>Reporte de productos</h3>
+            <h5>Fecha Inicio: <%= startDate %> - Fecha Termino: <%= endDate %>
+            </h5>
+
+            <table class="customTable">
+                <thead>
+                    <tr>
+                        <td>
+                            Producto
+                        </td>
+                        <td>
+                            Total Productos
+                        </td>
+                        <td>
+                            Total Venta
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if (orders.length> 0) { %>
+                        <% orders.forEach(o=> {%>
+                            <tr>
+                                <td>
+                                    <%= o._id %>
+                                </td>
+                                <td>
+                                    <%= o.total_products %>
+                                </td>
+                                <td>
+                                    <%= o.total_price %>
+                                </td>
+                            </tr>
+                            <% });%>
+                                <% } else{%>
+                                    <tr>
+                                        <td colspan="3">
+                                            NO DATA
+                                        </td>
+                                    </tr>
+                                    <% } %>
+
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>
