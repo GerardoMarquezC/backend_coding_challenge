@@ -19,6 +19,8 @@ services:
     environment:
       - PORT=1000
       - SERVER_ID=1
+      - MONGODB_CNN=mongodb+srv://admin:admin123@cluster0.aql5h.mongodb.net/bcc?retryWrites=true&w=majority
+      - SECRETORPRIVATEKEY=J8PCyfC3hsRaFhbyrFY5kurYD30FWfmpHzke3aFM9hmaRKI6yfSzED+Z+8U+ols3LS2HwLPsSlnJw+j5LyX20r7ZR9N16XUkZbdfmTdfHb3STSADTeiuLxgq0AXkAfVTKgdG3PLf5JZuxqJMxYWKNdOFxXQeeBF71zeeIv5GTOo= 
   app2:
     image: gerardomc/balancenode
     ports:
@@ -26,6 +28,8 @@ services:
     environment:
       - PORT=2000
       - SERVER_ID=2
+      - MONGODB_CNN=mongodb+srv://admin:admin123@cluster0.aql5h.mongodb.net/bcc?retryWrites=true&w=majority
+      - SECRETORPRIVATEKEY=J8PCyfC3hsRaFhbyrFY5kurYD30FWfmpHzke3aFM9hmaRKI6yfSzED+Z+8U+ols3LS2HwLPsSlnJw+j5LyX20r7ZR9N16XUkZbdfmTdfHb3STSADTeiuLxgq0AXkAfVTKgdG3PLf5JZuxqJMxYWKNdOFxXQeeBF71zeeIv5GTOo= 
   app3:
     image: gerardomc/balancenode
     ports:
@@ -33,3 +37,5 @@ services:
     environment:
       - PORT=3000
       - SERVER_ID=3
+      - MONGODB_CNN=mongodb+srv://admin:admin123@cluster0.aql5h.mongodb.net/bcc?retryWrites=true&w=majority
+      - SECRETORPRIVATEKEY=J8PCyfC3hsRaFhbyrFY5kurYD30FWfmpHzke3aFM9hmaRKI6yfSzED+Z+8U+ols3LS2HwLPsSlnJw+j5LyX20r7ZR9N16XUkZbdfmTdfHb3STSADTeiuLxgq0AXkAfVTKgdG3PLf5JZuxqJMxYWKNdOFxXQeeBF71zeeIv5GTOo= 
