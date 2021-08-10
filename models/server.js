@@ -6,7 +6,8 @@ class Server {
 
     constructor() {
         this.app = express();
-        this.port = process.argv[2] || process.env.PORT;
+        this.port = process.env.PORT;
+        this.server = process.env.SERVER_ID;
 
         //Conectando a la base de datos
         this.dbConnection();
@@ -16,6 +17,7 @@ class Server {
 
         // Rutas de mi aplicación
         this.routes();
+        
     }
 
     async dbConnection(){
@@ -36,6 +38,8 @@ class Server {
     routes() {
         this.app.use('/api/auth',require('../routes/auth'));
         this.app.use('/api/users',require('../routes/users'));
+        this.app.use('/api/orders',require('../routes/orders'));
+        this.app.use("/info", require('../routes/info'));
     }
 
     listen() {

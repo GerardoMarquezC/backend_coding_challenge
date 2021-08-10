@@ -74,6 +74,5 @@ const toCsv = async (req = request, res = response) => {
 
 module.exports = {
   getUsers,
-  postUsers,
-  toCsv,
+  postUsers
 };

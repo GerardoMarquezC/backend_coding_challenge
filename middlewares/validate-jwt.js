@@ -16,14 +16,10 @@ const validateJWT = async (req = request, res = response, next) => {
         msg: "User is not registered in the database",
       });
     }
-    if (!user.state) {
-      return res.status(401).json({
-        msg: "Invalid Token",
-      });
-    }
     req.user = user;
     next();
   } catch (error) {
+    console.log(error);
     res.status(401).json({ msg: "invalid token" });
   }
 };

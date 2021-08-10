@@ -2,8 +2,7 @@ const { Router } = require("express");
 const { check } = require("express-validator");
 const {
   getUsers,
-  postUsers,
-  toCsv
+  postUsers
 } = require("../controllers/users");
 const {
   isEmailValidate,
@@ -15,7 +14,6 @@ const {
 const router = Router();
 
 router.get("/", getUsers);
-router.get("/toCsv", toCsv);
 router.post(
   "/",
   [

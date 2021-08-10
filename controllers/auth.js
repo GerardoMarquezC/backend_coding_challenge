@@ -10,10 +10,7 @@ const login = async (req = request, res = response) => {
     if (!user) {
       return res.status(400).json({ msg: "User not registered" });
     }
-    // Si el usuario esta activo
-    if (!user.state) {
-      return res.status(400).json({ msg: "User not registered" });
-    }
+    
     // Verificar la contraseña
     const validPassword = bcryptjs.compareSync(password, user.password);
 
