@@ -1,13 +1,5 @@
 const mongoose = require("mongoose");
-const Role = require("../models/role");
 const User = require("../models/user");
-
-const isRoleValidate = async (role = "") => {
-  const roleExist = await Role.findOne({ role });
-  if (!roleExist) {
-    throw new Error(`the role "${role}" is not registered in the database`);
-  }
-};
 
 const isEmailValidate = async (email = "") => {
   const emailExist = await User.findOne({ email });
@@ -30,7 +22,6 @@ const existUserByID = async (id) => {
 };
 
 module.exports = {
-  isRoleValidate,
   isEmailValidate,
   existUserByID,
 };

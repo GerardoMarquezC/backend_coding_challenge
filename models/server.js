@@ -6,7 +6,7 @@ class Server {
 
     constructor() {
         this.app = express();
-        this.port = process.env.PORT;
+        this.port = process.argv[2] || process.env.PORT;
 
         //Conectando a la base de datos
         this.dbConnection();
