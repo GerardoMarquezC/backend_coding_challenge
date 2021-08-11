@@ -45,7 +45,6 @@ const reportProducts = async (req = request, res = response) => {
     }]).sort({
         total_products: -1 //Sort by Date Added DESC
     });
-    console.log(orders);
     generateReport("reportProducts.pdf", "report-template.ejs", { startDate: startDate.toISOString().slice(0, 10), endDate: endDate.toISOString().slice(0, 10), orders }, res)
 }
 
@@ -69,6 +68,7 @@ const generateReport = async (name, template, data, res) => {
             };
             pdf.create(data, options).toStream((err, str) => {
                 if (err) {
+                    console.log(err);
                     res.status(401).send(err);
                     logger.error(err.message);
                 } else {
